@@ -1,6 +1,7 @@
 import pygame
 import Engine
 import TitleScreen
+import CreateCharacterScreen
 import CourseSelectScreen
 import Course
 import Ball
@@ -47,6 +48,13 @@ class Stage(object):
         title_stage.add_object(title_screen)
         self.game_engine.add_stage(title_stage)
         self.game_engine.set_active_stage(title_stage)
+
+    def create_create_character_screen(self):
+        create_character_screen = CreateCharacterScreen.CreateCharacterScreen()
+        create_character_stage = Stage(self.game_engine)
+        create_character_stage.add_object(create_character_screen)
+        self.game_engine.add_stage(create_character_stage)
+        self.game_engine.set_active_stage(create_character_stage)
 
     def create_course_select_screen(self):
         course_select = CourseSelectScreen.CourseSelectScreen()

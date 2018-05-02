@@ -22,6 +22,7 @@ class Hole(GameObject.GameObject):
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
+                    self.hole_number += 1
                     self.display_pause_screen(stage)
             if event.type == pygame.QUIT:
                 pygame.quit()
