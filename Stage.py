@@ -34,7 +34,7 @@ class Stage(object):
     def handle_input(self):
         events = pygame.event.get()
         for game_object in self.stage_objects:
-            if not game_object.hidden:
+            if not game_object.ignore_input:
                 game_object.handle_input(self, events)
 
     def step(self):

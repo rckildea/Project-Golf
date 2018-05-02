@@ -9,6 +9,7 @@ class GameObject(object):
     def __init__(self, z_index = 0):
         self.z_index = z_index
         self.hidden = False
+        self.ignore_input = False
 
 
     def draw(self, game_display):
@@ -19,3 +20,11 @@ class GameObject(object):
 
     def step(self, stage):
         pass
+
+    def set_active(self):
+        self.hidden = False
+        self.ignore_input = False
+
+    def set_inactive(self):
+        self.hidden = True
+        self.ignore_input = True

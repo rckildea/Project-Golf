@@ -22,8 +22,7 @@ class Hole(GameObject.GameObject):
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
-                    stage.pause_screen.hidden = False
-                    print("Here")
+                    self.display_pause_screen(stage)
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
@@ -43,3 +42,8 @@ class Hole(GameObject.GameObject):
         self.tee_box_pos_x = coords[0]
         self.tee_box_pos_y = coords[1]
         reader.close()
+
+    def display_pause_screen(self, stage):
+        stage.pause_screen.set_active()
+        stage.golf_ball.ignore_input = True
+        stage.swing_bar.ignore_input = True
