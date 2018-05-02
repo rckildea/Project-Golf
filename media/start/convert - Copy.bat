@@ -1,0 +1,1 @@
+C:\Users\Kildea\Desktop\pngcrush_1_8_11_w64.exe -ow -rem allb -reduce direction_arrow.png
