@@ -7,6 +7,9 @@ class GameObject(object):
     RESOLUTION = (DISPLAY_WIDTH, DISPLAY_HEIGHT)
     pygame.font.init()
     FONT_12 = pygame.font.Font("media/start/big_noodle_titling.ttf", 12)
+    FONT_20 = pygame.font.Font("media/start/big_noodle_titling.ttf", 20)
+    FONT_48 = pygame.font.Font("media/start/big_noodle_titling.ttf", 48)
+    FONT_64 = pygame.font.Font("media/start/big_noodle_titling.ttf", 64)
 
     def __init__(self, z_index = 0):
         self.z_index = z_index

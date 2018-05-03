@@ -24,3 +24,5 @@ class Button(GameObject.GameObject):
                 x, y = event.pos
                 if self.button_rect.collidepoint(x, y):
                     self.button_pressed = True
+            if event.type == pygame.MOUSEBUTTONUP:
+                self.button_pressed = False

@@ -3,6 +3,7 @@ import Engine
 import TitleScreen
 import CreateCharacterScreen
 import CourseSelectScreen
+import PlayerCharacter
 import Course
 import Ball
 import SwingBar
@@ -13,8 +14,8 @@ class Stage(object):
 
     def __init__(self, game_engine):
         self.stage_objects = []
-
         self.game_engine = game_engine
+        self.character = PlayerCharacter.PlayerCharacter()
 
     def add_object(self, game_obj):
         if len(self.stage_objects) == 0:
@@ -50,8 +51,9 @@ class Stage(object):
         self.game_engine.set_active_stage(title_stage)
 
     def create_create_character_screen(self):
-        create_character_screen = CreateCharacterScreen.CreateCharacterScreen()
+        create_character_screen = CreateCharacterScreen.CreateCharacterScreen(self)
         create_character_stage = Stage(self.game_engine)
+        create_character_stage.add_object(self.character)
         create_character_stage.add_object(create_character_screen)
         self.game_engine.add_stage(create_character_stage)
         self.game_engine.set_active_stage(create_character_stage)

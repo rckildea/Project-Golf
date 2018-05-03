@@ -16,13 +16,16 @@ class TitleScreen(GameObject.GameObject):
 
     def handle_input(self, stage, events):
         self.start_button.handle_input(stage, events)
-        if self.start_button.button_pressed:
-            self.start_button.button_pressed = False
-            stage.create_create_character_screen()
+
         for event in events:
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
+
+    def step(self, stage):
+        if self.start_button.button_pressed:
+            self.start_button.button_pressed = False
+            stage.create_create_character_screen()
 
     def music(self):
         pygame.mixer.stop()
