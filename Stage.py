@@ -1,17 +1,11 @@
 import pygame
-import Engine
-import TitleScreen
 import CreateCharacterScreen
 import CourseSelectScreen
+import TitleScreen
 import PlayerCharacter
-import Course
-import Ball
-import SwingBar
-import Pin
 
 
 class Stage(object):
-
     def __init__(self, game_engine):
         self.stage_objects = []
         self.game_engine = game_engine
@@ -35,6 +29,10 @@ class Stage(object):
 
     def handle_input(self):
         events = pygame.event.get()
+        for event in events:
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
         for game_object in self.stage_objects:
             if not game_object.ignore_input:
                 game_object.handle_input(self, events)
@@ -48,7 +46,9 @@ class Stage(object):
         title_stage = Stage(self.game_engine)
         title_stage.add_object(title_screen)
         self.game_engine.add_stage(title_stage)
+        self.game_engine.title_screen_index = self.game_engine.get_stage_index(title_stage)
         self.game_engine.set_active_stage(title_stage)
+        self.create_course_select_screen()
 
     def create_create_character_screen(self):
         create_character_screen = CreateCharacterScreen.CreateCharacterScreen(self)
@@ -63,4 +63,4 @@ class Stage(object):
         course_select_stage = Stage(self.game_engine)
         course_select_stage.add_object(course_select)
         self.game_engine.add_stage(course_select_stage)
-        self.game_engine.set_active_stage(course_select_stage)
+        self.game_engine.course_select_screen_index = self.game_engine.get_stage_index(course_select_stage)

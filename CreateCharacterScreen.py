@@ -1,6 +1,7 @@
 import pygame
 import GameObject
 import Status
+import Button
 
 
 class CreateCharacterScreen(GameObject.GameObject):
@@ -9,6 +10,10 @@ class CreateCharacterScreen(GameObject.GameObject):
         self.BACKGROUND_IMAGE = pygame.image.load("media/start/create_character_screen.png").convert()
         self.BACKGROUND_RECT = self.BACKGROUND_IMAGE.get_rect()
         self.TITLE = self.FONT_64.render("Character Creation", 1, (0, 0, 0))
+
+        self.BUTTON_COLOR = (190, 150, 250, 10)
+        self.cancel_button = Button.Button(self.DISPLAY_WIDTH / 10, self.DISPLAY_HEIGHT / 1.2, "generic_button", "Cancel", self.BUTTON_COLOR)
+        self.confirm_button = Button.Button(self.DISPLAY_WIDTH / 1.5, self.DISPLAY_HEIGHT / 1.2, "generic_button", "Confirm", self.BUTTON_COLOR)
 
         self.STRENGTH_COLOR = (255, 144, 144, 43)
         self.CONTROL_COLOR = (255, 212, 144, 9)
@@ -31,6 +36,8 @@ class CreateCharacterScreen(GameObject.GameObject):
 
     def draw(self, game_display):
         game_display.blit(self.BACKGROUND_IMAGE, (0, 0))
+        self.cancel_button.draw(game_display)
+        self.confirm_button.draw(game_display)
         game_display.blit(self.TITLE, (self.BACKGROUND_RECT.centerx - self.TITLE.get_size()[0] / 2, 30))
         game_display.blit(self.points_text, (self.strength.status_bar_rect.centerx - self.points_text.get_size()[0] / 2, self.INITIAL_Y_POS - 20))
         for status in self.status_list:
@@ -43,8 +50,14 @@ class CreateCharacterScreen(GameObject.GameObject):
                 quit()
         for status in self.status_list:
             status.handle_input(stage, events)
+        self.cancel_button.handle_input(stage, events)
+        self.confirm_button.handle_input(stage, events)
 
     def step(self, stage):
         self.points_text = self.FONT_20.render("Status points: {points}".format(points=stage.character.status_points), 1, (0, 0, 0))
         for status in self.status_list:
             status.step(stage)
+        if self.cancel_button.button_pressed:
+            self.cancel_button.button_pressed = False
+            stage.game_engine.set_active_stage(stage.game_engine.stage_list[stage.game_engine.title_screen_index])
+            stage.game_engine.delete_stage(stage)

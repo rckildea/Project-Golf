@@ -1,6 +1,5 @@
 import pygame
 import GameObject
-import random
 
 
 class Pin(GameObject.GameObject):

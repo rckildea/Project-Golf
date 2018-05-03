@@ -1,5 +1,6 @@
 import GameObject
 
+
 class PlayerCharacter(GameObject.GameObject):
     def __init__(self):
         super().__init__(1)

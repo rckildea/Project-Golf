@@ -1,17 +1,9 @@
-import TitleScreen
-import CourseSelectScreen
-import Course
-import Ball
-import SwingBar
-import Pin
-import Stage
-import pygame
-
-
 class Engine(object):
     def __init__(self):
         self.stage_list = []
         self.active_stage = 0
+        self.title_screen_index = -1
+        self.course_select_screen_index = -1
 
     def draw(self, game_display):
         self.active_stage.draw(game_display)
@@ -24,6 +16,9 @@ class Engine(object):
 
     def add_stage(self, stage):
         self.stage_list.append(stage)
+
+    def delete_stage(self, stage):
+        self.stage_list.remove(stage)
 
     def set_active_stage(self, stage):
         self.active_stage = self.stage_list[self.get_stage_index(stage)]

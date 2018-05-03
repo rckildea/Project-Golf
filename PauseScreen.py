@@ -2,6 +2,7 @@ import pygame
 import GameObject
 import Button
 
+
 class PauseScreen(GameObject.GameObject):
     def __init__(self):
         super().__init__(8)

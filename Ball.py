@@ -1,9 +1,7 @@
 import pygame
 import GameObject
-import Pin
 import time
 import math
-import random
 
 
 class Ball(GameObject.GameObject):

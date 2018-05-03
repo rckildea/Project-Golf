@@ -1,7 +1,6 @@
 import pygame
 import GameObject
 import time
-import math
 
 
 class SwingBar(GameObject.GameObject):

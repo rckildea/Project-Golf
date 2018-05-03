@@ -2,6 +2,7 @@ import pygame
 import GameObject
 import Button
 
+
 class Status(GameObject.GameObject):
     def __init__(self, name, color, y):
         super().__init__(6)
@@ -18,13 +19,9 @@ class Status(GameObject.GameObject):
         self.status_bar_label = pygame.image.load("media/start/{name}_text.png".format(name=self.name)).convert_alpha()
         self.status_bar_label.fill(self.color, special_flags=pygame.BLEND_MULT)
 
-        self.status_minus_button = Button.Button(self.status_bar_x - 35, self.status_bar_y + 20)
+        self.status_minus_button = Button.Button(self.status_bar_x - 35, self.status_bar_y + 20, "stat_bar_minus", "", self.color)
         self.status_plus_button = Button.Button(self.status_bar_x + self.status_bar.get_size()[0] + 5,
-                                                  self.status_bar_y + 10)
-        self.status_minus_button.button_image = pygame.image.load("media/start/stat_bar_minus.png").convert_alpha()
-        self.status_plus_button.button_image = pygame.image.load("media/start/stat_bar_plus.png").convert_alpha()
-        self.status_minus_button.button_image.fill(self.color, special_flags=pygame.BLEND_MULT)
-        self.status_plus_button.button_image.fill(self.color, special_flags=pygame.BLEND_MULT)
+                                                self.status_bar_y + 10, "stat_bar_plus", "", self.color)
 
         self.status_val_text = self.FONT_20.render("{}".format(self.points), 1, (0, 0, 0))
 

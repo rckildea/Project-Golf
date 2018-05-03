@@ -20,7 +20,7 @@ class CourseStage(Stage.Stage):
         self.add_object(self.golf_ball)
         self.add_object(self.swing_bar)
         self.add_object(self.pin)
-        self.add_object((self.pause_screen))
+        self.add_object(self.pause_screen)
 
         self.game_engine.add_stage(self)
         self.game_engine.set_active_stage(self)
