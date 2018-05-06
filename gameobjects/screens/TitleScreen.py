@@ -1,6 +1,6 @@
 import pygame
 import GameObject
-import Button
+from gameobjects.objects import Button
 
 
 class TitleScreen(GameObject.GameObject):
@@ -36,7 +36,7 @@ class TitleScreen(GameObject.GameObject):
             stage.game_engine.set_active_stage(stage.game_engine.stage_list[stage.game_engine.course_select_screen_index])
         if self.create_character_button.button_pressed:
             self.create_character_button.button_pressed = False
-            stage.create_create_character_screen()
+            stage.create_create_character_screen(stage.game_engine)
         if self.quit_button.button_pressed:
             pygame.quit()
             quit()

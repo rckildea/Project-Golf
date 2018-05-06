@@ -1,6 +1,6 @@
 import pygame
 import GameObject
-import Button
+from gameobjects.objects import Button
 
 
 class Status(GameObject.GameObject):
@@ -63,12 +63,10 @@ class Status(GameObject.GameObject):
     def get_status_point_update(self, stage):
         if self.status_minus_button.button_pressed and not self.points == 0:
             self.points -= 1
-            stage.character.status_points += 1
+            stage.game_engine.character.status_points += 1
 
-        if self.status_plus_button.button_pressed and not stage.character.status_points == 0 and not self.points >= 40:
+        if self.status_plus_button.button_pressed and not stage.game_engine.character.status_points == 0 and not self.points >= 40:
             self.points += 1
-            stage.character.status_points -= 1
+            stage.game_engine.character.status_points -= 1
 
         pygame.time.wait(15)
-        #self.status_minus_button.button_pressed = False
-        #self.status_plus_button.button_pressed = False

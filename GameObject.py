@@ -8,6 +8,7 @@ class GameObject(object):
     pygame.font.init()
     FONT_12 = pygame.font.Font("media/start/big_noodle_titling.ttf", 12)
     FONT_20 = pygame.font.Font("media/start/big_noodle_titling.ttf", 20)
+    FONT_24 = pygame.font.Font("media/start/big_noodle_titling.ttf", 24)
     FONT_48 = pygame.font.Font("media/start/big_noodle_titling.ttf", 48)
     FONT_64 = pygame.font.Font("media/start/big_noodle_titling.ttf", 64)
 

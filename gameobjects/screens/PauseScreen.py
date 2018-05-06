@@ -1,6 +1,6 @@
 import pygame
 import GameObject
-import Button
+from gameobjects.objects import Button
 
 
 class PauseScreen(GameObject.GameObject):

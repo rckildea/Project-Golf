@@ -1,15 +1,15 @@
 import pygame
-import CreateCharacterScreen
-import CourseSelectScreen
-import TitleScreen
-import PlayerCharacter
+from gameobjects.screens import CourseSelectScreen, CreateCharacterScreen, TitleScreen, PauseScreen, ScoreCard
+import Course
+from gameobjects.objects import Ball, Pin, SwingBar
 
 
 class Stage(object):
     def __init__(self, game_engine):
         self.stage_objects = []
         self.game_engine = game_engine
-        self.character = PlayerCharacter.PlayerCharacter()
+
+        self.course = 0
 
     def add_object(self, game_obj):
         if len(self.stage_objects) == 0:
@@ -41,26 +41,47 @@ class Stage(object):
         for game_object in self.stage_objects:
             game_object.step(self)
 
-    def create_title_screen(self):
+    @staticmethod
+    def create_title_screen(game_engine):
         title_screen = TitleScreen.TitleScreen()
-        title_stage = Stage(self.game_engine)
+        title_stage = Stage(game_engine)
         title_stage.add_object(title_screen)
-        self.game_engine.add_stage(title_stage)
-        self.game_engine.title_screen_index = self.game_engine.get_stage_index(title_stage)
-        self.game_engine.set_active_stage(title_stage)
-        self.create_course_select_screen()
+        game_engine.add_stage(title_stage)
+        game_engine.title_screen_index = game_engine.get_stage_index(title_stage)
+        game_engine.set_active_stage(title_stage)
+        Stage.create_course_select_screen(game_engine)
 
-    def create_create_character_screen(self):
-        create_character_screen = CreateCharacterScreen.CreateCharacterScreen(self)
-        create_character_stage = Stage(self.game_engine)
-        create_character_stage.add_object(self.character)
+    @staticmethod
+    def create_create_character_screen(game_engine):
+        create_character_screen = CreateCharacterScreen.CreateCharacterScreen()
+        create_character_stage = Stage(game_engine)
         create_character_stage.add_object(create_character_screen)
-        self.game_engine.add_stage(create_character_stage)
-        self.game_engine.set_active_stage(create_character_stage)
+        game_engine.add_stage(create_character_stage)
+        game_engine.set_active_stage(create_character_stage)
 
-    def create_course_select_screen(self):
+    @staticmethod
+    def create_course_select_screen(game_engine):
         course_select = CourseSelectScreen.CourseSelectScreen()
-        course_select_stage = Stage(self.game_engine)
+        course_select_stage = Stage(game_engine)
         course_select_stage.add_object(course_select)
-        self.game_engine.add_stage(course_select_stage)
-        self.game_engine.course_select_screen_index = self.game_engine.get_stage_index(course_select_stage)
+        game_engine.add_stage(course_select_stage)
+        game_engine.course_select_screen_index = game_engine.get_stage_index(course_select_stage)
+
+    def create_course(self, course_name):
+        self.course = Course.Course(course_name)
+        self.golf_ball = Ball.Ball(self.course.hole_list[self.course.current_hole].tee_box_pos_x,
+                                   self.course.hole_list[self.course.current_hole].tee_box_pos_y)
+        self.swing_bar = SwingBar.SwingBar()
+        self.pin = Pin.Pin()
+        self.pause_screen = PauseScreen.PauseScreen()
+        self.score_card = ScoreCard.ScoreCard(self.course)
+
+        self.add_object(self.course.hole_list[self.course.current_hole])
+        self.add_object(self.golf_ball)
+        self.add_object(self.swing_bar)
+        self.add_object(self.pin)
+        self.add_object(self.pause_screen)
+        self.add_object(self.score_card)
+
+        self.game_engine.add_stage(self)
+        self.game_engine.set_active_stage(self)

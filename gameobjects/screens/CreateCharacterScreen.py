@@ -1,11 +1,12 @@
 import pygame
 import GameObject
-import Status
-import Button
+from gameobjects.objects import Button, Status
+import os
 
 
 class CreateCharacterScreen(GameObject.GameObject):
-    def __init__(self, stage):
+    #TODO: Fix bug -- stat points are lost if not saved
+    def __init__(self):
         super().__init__(1)
         self.BACKGROUND_IMAGE = pygame.image.load("media/start/create_character_screen.png").convert()
         self.BACKGROUND_RECT = self.BACKGROUND_IMAGE.get_rect()
@@ -33,6 +34,9 @@ class CreateCharacterScreen(GameObject.GameObject):
 
         self.points_text = self.FONT_20.render("Status points: {points}".format(points=0), 1, (0, 0, 0))
 
+        self.cancel_points = 0
+        self.points_checked = False
+
 
     def draw(self, game_display):
         game_display.blit(self.BACKGROUND_IMAGE, (0, 0))
@@ -54,10 +58,21 @@ class CreateCharacterScreen(GameObject.GameObject):
         self.confirm_button.handle_input(stage, events)
 
     def step(self, stage):
-        self.points_text = self.FONT_20.render("Status points: {points}".format(points=stage.character.status_points), 1, (0, 0, 0))
+        self.points_text = self.FONT_20.render("Status points: {points}".format(points=stage.game_engine.character.status_points), 1, (0, 0, 0))
         for status in self.status_list:
             status.step(stage)
+        if self.confirm_button.button_pressed:
+            os.remove("account1.txt")
+            for status in self.status_list:
+                file = open("account1.txt", 'a')
+                file.write("{stat} = {points}\n".format(stat=status.name, points=status.points))
+            file.close()
+
         if self.cancel_button.button_pressed:
             self.cancel_button.button_pressed = False
             stage.game_engine.set_active_stage(stage.game_engine.stage_list[stage.game_engine.title_screen_index])
             stage.game_engine.delete_stage(stage)
+            stage.game_engine.character.status_points = self.cancel_points
+        if not self.points_checked:
+            self.cancel_points = stage.game_engine.character.status_points
+            self.points_checked = True

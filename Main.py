@@ -19,8 +19,7 @@ clock = pygame.time.Clock()
 def game_loop():
 
     game_engine = Engine.Engine()
-    title_stage = Stage.Stage(game_engine)
-    title_stage.create_title_screen()
+    Stage.Stage.create_title_screen(game_engine)
 
     while True:
         game_engine.handle_input()

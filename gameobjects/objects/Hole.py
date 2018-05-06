@@ -5,7 +5,7 @@ import GameObject
 class Hole(GameObject.GameObject):
     def __init__(self, number, course):
         super().__init__(1)
-        self.hole_number = number + 1
+        self.hole_number = number
         self.course_name = course
         self.hole_background = pygame.image.load(
             "media/courses/{course}/hole{num}/hole{num}.png".format(course=self.course_name,
@@ -22,15 +22,16 @@ class Hole(GameObject.GameObject):
         for event in events:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
-                    self.hole_number += 1
                     self.display_pause_screen(stage)
+                if event.key == pygame.K_s:
+                    self.display_score_card(stage)
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
 
     def get_par(self):
         if self.course_name == "Spring Meadows":
-            par_list = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+            par_list = [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4, 4]
             return par_list[self.hole_number]
         return 0
 
@@ -46,5 +47,10 @@ class Hole(GameObject.GameObject):
 
     def display_pause_screen(self, stage):
         stage.pause_screen.set_active()
+        stage.golf_ball.ignore_input = True
+        stage.swing_bar.ignore_input = True
+
+    def display_score_card(self, stage):
+        stage.score_card.set_active()
         stage.golf_ball.ignore_input = True
         stage.swing_bar.ignore_input = True

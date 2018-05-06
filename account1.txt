@@ -1,0 +1,5 @@
+Strength = 20
+Control = 0
+Unknown1 = 21
+Unknown2 = 0
+Unknown3 = 0

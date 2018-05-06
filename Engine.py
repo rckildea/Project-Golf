@@ -1,9 +1,13 @@
+from gameobjects.objects import PlayerCharacter
+
+
 class Engine(object):
     def __init__(self):
         self.stage_list = []
         self.active_stage = 0
         self.title_screen_index = -1
         self.course_select_screen_index = -1
+        self.character = PlayerCharacter.PlayerCharacter()
 
     def draw(self, game_display):
         self.active_stage.draw(game_display)
