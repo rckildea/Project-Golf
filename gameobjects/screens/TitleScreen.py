@@ -5,7 +5,7 @@ from gameobjects.objects import Button
 
 class TitleScreen(GameObject.GameObject):
     def __init__(self):
-        super().__init__(1)
+        super().__init__(1, True)
         self.BACKGROUND_IMAGE = pygame.image.load("media/start/Title.png").convert()
         BUTTON_COLOR = (207, 255, 144, 10)
         FONT_COLOR = (255, 255, 255)
@@ -45,3 +45,4 @@ class TitleScreen(GameObject.GameObject):
         pygame.mixer.stop()
         pygame.mixer.music.load("media/start/theme.mp3")
         pygame.mixer.music.play(-1)
+        self.music_playing = True

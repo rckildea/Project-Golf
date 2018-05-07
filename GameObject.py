@@ -12,11 +12,11 @@ class GameObject(object):
     FONT_48 = pygame.font.Font("media/start/big_noodle_titling.ttf", 48)
     FONT_64 = pygame.font.Font("media/start/big_noodle_titling.ttf", 64)
 
-    def __init__(self, z_index = 0):
+    def __init__(self, z_index = 0, has_music=False):
         self.z_index = z_index
         self.hidden = False
         self.ignore_input = False
-
+        self.has_music = has_music
 
     def draw(self, game_display):
         print("Error!  Not implemented.")

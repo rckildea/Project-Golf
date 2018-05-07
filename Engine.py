@@ -8,6 +8,7 @@ class Engine(object):
         self.title_screen_index = -1
         self.course_select_screen_index = -1
         self.character = PlayerCharacter.PlayerCharacter()
+        self.music_stage = 0
 
     def draw(self, game_display):
         self.active_stage.draw(game_display)
@@ -25,7 +26,12 @@ class Engine(object):
         self.stage_list.remove(stage)
 
     def set_active_stage(self, stage):
+        for obj in stage.stage_objects:
+            if obj.has_music and not stage == self.music_stage:
+                self.music_stage = stage
+                obj.music()
         self.active_stage = self.stage_list[self.get_stage_index(stage)]
+
 
     def get_stage_index(self, the_stage):
         for stage in self.stage_list:

@@ -21,11 +21,6 @@ class Course:
 
         return hole_list
 
-    def start_music(self):
-        pygame.mixer.music.load("media/courses/{course}/theme.mp3".format(course=self.course_name))
-        pygame.mixer.stop()
-        pygame.mixer.music.play(-1)
-
     def get_strokes(self, start):
         end = start+9
         sum = 0

@@ -4,7 +4,7 @@ import GameObject
 
 class Hole(GameObject.GameObject):
     def __init__(self, number, course):
-        super().__init__(1)
+        super().__init__(1, True)
         self.hole_number = number
         self.course_name = course
         self.hole_background = pygame.image.load(
@@ -54,3 +54,8 @@ class Hole(GameObject.GameObject):
         stage.score_card.set_active()
         stage.golf_ball.ignore_input = True
         stage.swing_bar.ignore_input = True
+
+    def music(self):
+        pygame.mixer.stop()
+        pygame.mixer.music.load("media/courses/{course}/theme.mp3".format(course=self.course_name))
+        pygame.mixer.music.play(-1)
