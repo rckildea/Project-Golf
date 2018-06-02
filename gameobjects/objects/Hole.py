@@ -31,7 +31,7 @@ class Hole(GameObject.GameObject):
 
     def get_par(self):
         if self.course_name == "Spring Meadows":
-            par_list = [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 4, 4, 4, 4, 4, 4]
+            par_list = [0, 4, 4, 3, 5, 4, 4, 3, 4, 5, 4, 4, 5, 4, 3, 4, 5, 3, 4]
             return par_list[self.hole_number]
         return 0
 
@@ -58,4 +58,4 @@ class Hole(GameObject.GameObject):
     def music(self):
         pygame.mixer.stop()
         pygame.mixer.music.load("media/courses/{course}/theme.mp3".format(course=self.course_name))
-        pygame.mixer.music.play(-1)
+        #pygame.mixer.music.play(-1)

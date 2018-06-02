@@ -1,6 +1,6 @@
 import pygame
-from gameobjects.screens import CourseSelectScreen, CreateCharacterScreen, TitleScreen, PauseScreen, ScoreCard
-import Course
+from gameobjects.screens import CourseSelectScreen, CreateCharacterScreen, TitleScreen, PauseScreen, ScoreCard, TutorialScoreCard
+import Course, Tutorial
 from gameobjects.objects import Ball, Pin, SwingBar
 
 
@@ -66,6 +66,25 @@ class Stage(object):
         course_select_stage.add_object(course_select)
         game_engine.add_stage(course_select_stage)
         game_engine.course_select_screen_index = game_engine.get_stage_index(course_select_stage)
+
+    def create_tutorial(self):
+        self.course = Tutorial.Tutorial()
+        self.golf_ball = Ball.Ball(self.course.hole_list[self.course.current_hole].tee_box_pos_x,
+                                   self.course.hole_list[self.course.current_hole].tee_box_pos_y)
+        self.swing_bar = SwingBar.SwingBar()
+        self.pin = Pin.Pin()
+        self.pause_screen = PauseScreen.PauseScreen()
+        self.score_card = TutorialScoreCard.TutorialScoreCard(self.course)
+
+        self.add_object(self.course.hole_list[self.course.current_hole])
+        self.add_object(self.golf_ball)
+        self.add_object(self.swing_bar)
+        self.add_object(self.pin)
+        self.add_object(self.pause_screen)
+        self.add_object(self.score_card)
+
+        self.game_engine.add_stage(self)
+        self.game_engine.set_active_stage(self)
 
     def create_course(self, course_name):
         self.course = Course.Course(course_name)

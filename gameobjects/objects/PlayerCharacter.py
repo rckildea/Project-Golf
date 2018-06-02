@@ -4,7 +4,7 @@ import GameObject
 class PlayerCharacter(GameObject.GameObject):
     def __init__(self):
         super().__init__(1)
-        self.name = "WWWWWWWWWWWW"
+        self.name = "USER_NAME"
         self.status_points = 50
         self.strength = 0
         self.control = 0

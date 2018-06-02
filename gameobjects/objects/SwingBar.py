@@ -30,6 +30,8 @@ class SwingBar(GameObject.GameObject):
 
         self.accuracy_range = 50
 
+        self.swing_sound = pygame.mixer.Sound("media/game/golf_swing.ogg")
+
     def draw(self, game_display):
         game_display.blit(self.POWER_METER_IMG, (self.POWER_METER_POS_X, self.POWER_METER_POS_Y))
         game_display.blit(self.POW_TICKER, (self.pow_ticker_pos_x, self.pow_ticker_pos_y))
@@ -45,6 +47,7 @@ class SwingBar(GameObject.GameObject):
                         self.start_down_swing()
                     elif self.is_setting_accuracy:
                         self.lock_accuracy()
+                        self.swing_sound.play()
                         time.sleep(0.5)
                         self.reset_swing_bar()
                     else:
@@ -64,10 +67,9 @@ class SwingBar(GameObject.GameObject):
     def lock_accuracy(self):
         self.is_setting_accuracy = False
         self.power = int((self.pow_ticker_pos_x - self.POWER_METER_POS_X) / 3)
-        print("Power: {}".format(self.power))
+        self.power_num = self.power
 
         self.accuracy = 100 - int(abs(self.acc_ticker_pos_x - self.POWER_METER_POS_X))
-        print("Accuracy: {}%".format(self.accuracy))
 
     def start_up_swing(self): # Sets power
         self.is_setting_power = True

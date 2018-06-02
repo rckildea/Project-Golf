@@ -68,7 +68,7 @@ class ScoreCard(GameObject.GameObject):
 
     def draw_card(self, game_display):
         game_display.blit(self.background_image, (100, 220))
-        game_display.blit(self.course.course_icon, self.coords)
+        game_display.blit(self.course.score_card_icon, self.coords)
         if self.front_active:
             game_display.blit(self.front_9_image, self.coords)
         else:
@@ -109,13 +109,15 @@ class ScoreCard(GameObject.GameObject):
                 game_display.blit(score_text, (self.character_line_x, self.character_line_y))
             self.character_line_x += 30
 
-        self.character_line_x += 2
-
         if self.front_active:
             score_text = self.FONT_24.render("{}".format(self.user_front_9_strokes), 1, (0, 0, 0))
+            game_display.blit(score_text, (self.character_line_x, self.character_line_y))
         else:
+            self.character_line_x += 2
             score_text = self.FONT_24.render("{}".format(self.user_back_9_strokes), 1, (0, 0, 0))
-        game_display.blit(score_text, (self.character_line_x, self.character_line_y))
+            game_display.blit(score_text, (self.character_line_x, self.character_line_y))
+            self.character_line_x -= 2
+
 
         self.character_line_x += 30
 
@@ -133,7 +135,7 @@ class ScoreCard(GameObject.GameObject):
         self.user_front_9_strokes = sum(self.user_stroke_list[0:9])
         self.user_back_9_strokes = sum(self.user_stroke_list[9:18])
 
-        for i in range(0, 18):
+        for i in range(0, len(self.user_stroke_list) - 1):
             if not self.user_stroke_list[i] == 0:
                 user_sum += self.user_stroke_list[i]
                 par += self.course.hole_list[i].par
