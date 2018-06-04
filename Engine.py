@@ -32,7 +32,6 @@ class Engine(object):
                 obj.music()
         self.active_stage = self.stage_list[self.get_stage_index(stage)]
 
-
     def get_stage_index(self, the_stage):
         for stage in self.stage_list:
             if stage == the_stage:

@@ -1,6 +1,7 @@
 import pygame
 import Engine
 import Stage
+import StageFactory
 
 pygame.init()
 
@@ -19,7 +20,7 @@ clock = pygame.time.Clock()
 def game_loop():
 
     game_engine = Engine.Engine()
-    Stage.Stage.create_title_screen(game_engine)
+    StageFactory.StageFactory.create_title_screen(game_engine)
 
     while True:
         game_engine.handle_input()

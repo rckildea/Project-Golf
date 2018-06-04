@@ -5,7 +5,7 @@ import os
 
 
 class CreateCharacterScreen(GameObject.GameObject):
-    #TODO: Fix bug -- stat points are lost if not saved
+
     def __init__(self):
         super().__init__(1)
         self.BACKGROUND_IMAGE = pygame.image.load("media/start/create_character_screen.png").convert()
