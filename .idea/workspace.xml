@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cab1fea4-b31f-4a1e-91bc-b8f37c22815d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/Engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CourseStage.py" beforeDir="false" afterPath="$PROJECT_DIR$/CourseStage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stage.py" beforeDir="false" afterPath="$PROJECT_DIR$/Stage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/account1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StageFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/StageFactory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TutorialStage.py" beforeDir="false" afterPath="$PROJECT_DIR$/TutorialStage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameobjects/screens/CourseSelectScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameobjects/screens/CourseSelectScreen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameobjects/screens/CreateCharacterScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameobjects/screens/CreateCharacterScreen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameobjects/screens/TitleScreen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gameobjects/screens/TitleScreen.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,34 +21,10 @@
       <file leaf-file-name="StageFactory.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StageFactory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="473">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Stage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CourseSelectScreen.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gameobjects/screens/CourseSelectScreen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -59,8 +33,8 @@
       <file leaf-file-name="TitleScreen.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gameobjects/screens/TitleScreen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+            <state relative-caret-position="203">
+              <caret line="55" column="71" selection-start-line="55" selection-start-column="71" selection-end-line="55" selection-end-column="71" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -71,22 +45,19 @@
       <file leaf-file-name="CourseStage.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CourseStage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="1" column="54" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TutorialStage.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TutorialStage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TutorialStage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+            <state relative-caret-position="119">
+              <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -183,12 +154,12 @@
         <option value="$PROJECT_DIR$/gameobjects/screens/UserProfilesScreen.py" />
         <option value="$PROJECT_DIR$/gameobjects/screens/CreateCharacterScreen.py" />
         <option value="$PROJECT_DIR$/Main.py" />
-        <option value="$PROJECT_DIR$/CourseStage.py" />
-        <option value="$PROJECT_DIR$/TutorialStage.py" />
-        <option value="$PROJECT_DIR$/gameobjects/screens/TitleScreen.py" />
-        <option value="$PROJECT_DIR$/StageFactory.py" />
-        <option value="$PROJECT_DIR$/Stage.py" />
         <option value="$PROJECT_DIR$/gameobjects/screens/CourseSelectScreen.py" />
+        <option value="$PROJECT_DIR$/Stage.py" />
+        <option value="$PROJECT_DIR$/StageFactory.py" />
+        <option value="$PROJECT_DIR$/CourseStage.py" />
+        <option value="$PROJECT_DIR$/gameobjects/screens/TitleScreen.py" />
+        <option value="$PROJECT_DIR$/TutorialStage.py" />
       </list>
     </option>
   </component>
@@ -584,30 +555,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TutorialStage.py">
+    <entry file="file://$PROJECT_DIR$/gameobjects/screens/CourseSelectScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37">
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CourseStage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="1" column="54" selection-start-line="1" selection-start-column="54" selection-end-line="1" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gameobjects/screens/TitleScreen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="57" column="37" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+        <state relative-caret-position="203">
+          <caret line="55" column="71" selection-start-line="55" selection-start-column="71" selection-end-line="55" selection-end-column="71" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -616,30 +588,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/StageFactory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="473">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Stage.py">
+    <entry file="file://$PROJECT_DIR$/TutorialStage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        <state relative-caret-position="119">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gameobjects/screens/CourseSelectScreen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>

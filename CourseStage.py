@@ -1,7 +1,6 @@
-import pygame
 import Stage
-from gameobjects.screens import PauseScreen, ScoreCard, TutorialScoreCard
-import Course, Tutorial
+from gameobjects.screens import PauseScreen, ScoreCard
+import Course
 from gameobjects.objects import Ball, Pin, SwingBar
 
 

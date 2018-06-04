@@ -1,6 +1,5 @@
 import pygame
 import GameObject
-import Stage
 import StageFactory
 
 

@@ -1,8 +1,6 @@
 import pygame
 import GameObject
-import Stage
 import StageFactory
-import CourseStage
 from gameobjects.objects import Button
 
 
@@ -55,7 +53,7 @@ class TitleScreen(GameObject.GameObject):
             self.create_character_button.button_pressed = False
             StageFactory.StageFactory.create_create_character_screen(stage.game_engine)
         if self.tutorial_button.button_pressed:
-            StageFactory.StageFactory.create_tutorial()
+            StageFactory.StageFactory.create_tutorial(stage.game_engine)
         if self.quit_button.button_pressed:
             pygame.quit()
             quit()

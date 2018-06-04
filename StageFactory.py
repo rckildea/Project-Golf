@@ -1,4 +1,3 @@
-import pygame
 import Stage, CourseStage, TutorialStage
 from gameobjects.screens import CourseSelectScreen, CreateCharacterScreen, TitleScreen
 

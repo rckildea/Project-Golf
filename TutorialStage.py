@@ -1,12 +1,11 @@
-import pygame
 import Stage
-from gameobjects.screens import PauseScreen, ScoreCard, TutorialScoreCard
-import Course, Tutorial
+from gameobjects.screens import PauseScreen, TutorialScoreCard
+import Tutorial
 from gameobjects.objects import Ball, Pin, SwingBar
 
 
-class CourseStage(Stage.Stage):
-    def __init__(self, game_engine, course_name):
+class TutorialStage(Stage.Stage):
+    def __init__(self, game_engine):
         super().__init__(game_engine)
 
         self.course = Tutorial.Tutorial()
