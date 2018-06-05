@@ -1,4 +1,4 @@
-import Stage, CourseStage, TutorialStage
+import Stage, HoleStage, TutorialStage
 from gameobjects.screens import CourseSelectScreen, CreateCharacterScreen, TitleScreen
 
 
@@ -33,10 +33,10 @@ class StageFactory():
         game_engine.course_select_screen_index = game_engine.get_stage_index(course_select_stage)
 
     @staticmethod
-    def create_course(game_engine, course_name):
-        course_stage = CourseStage.CourseStage(game_engine, course_name)
-        game_engine.add_stage(course_stage)
-        game_engine.set_active_stage(course_stage)
+    def create_hole(game_engine, course):
+        hole_stage = HoleStage.HoleStage(game_engine, course)
+        game_engine.add_stage(hole_stage)
+        game_engine.set_active_stage(hole_stage)
 
     @staticmethod
     def create_tutorial(game_engine):

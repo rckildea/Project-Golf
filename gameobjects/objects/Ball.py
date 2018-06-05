@@ -2,6 +2,7 @@ import pygame
 import GameObject
 import time
 import math
+from threading import Timer
 
 
 class Ball(GameObject.GameObject):
@@ -92,8 +93,10 @@ class Ball(GameObject.GameObject):
             self.travel_distance_y = 0
 
     def check_in_hole(self, stage):
-        if (self.ball_rect.colliderect(stage.pin.pin_rect)):
-            self.ball_pos_x = 0
-            self.ball_pos_y = 0
-            self.update_rect()
-            print("Goal!")
+        if self.ball_rect.colliderect(stage.pin.pin_rect):
+            self.ball_pos_x = -100
+            self.ball_pos_y = -100
+            stage.course.get_current_hole().display_score_hole_out(stage)
+            stage.game_engine.character.update_stroke_list(stage.course.get_current_hole().hole_number - 1,
+                                                           stage.course.get_current_hole().hole_score)
+            Timer(5, stage.course.next_hole, [stage]).start()

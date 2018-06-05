@@ -11,11 +11,15 @@ class GameObject(object):
     FONT_24 = pygame.font.Font("media/start/big_noodle_titling.ttf", 24)
     FONT_48 = pygame.font.Font("media/start/big_noodle_titling.ttf", 48)
     FONT_64 = pygame.font.Font("media/start/big_noodle_titling.ttf", 64)
+    FONT_128 = pygame.font.Font("media/start/big_noodle_titling.ttf", 128)
 
     def __init__(self, z_index = 0, has_music=False):
-        self.z_index = z_index
+        self.z_index = z_index # Z Index keeps track of priorities
+
+        # Hidden state for 'draw' function, ignore input state for 'handle input' function
         self.hidden = False
         self.ignore_input = False
+
         self.has_music = has_music
 
     def draw(self, game_display):

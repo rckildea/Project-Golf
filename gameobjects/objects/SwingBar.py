@@ -50,6 +50,10 @@ class SwingBar(GameObject.GameObject):
                         self.swing_sound.play()
                         time.sleep(0.5)
                         self.reset_swing_bar()
+                        stage.game_engine.character.increment_current_stroke()
+                        if stage.game_engine.character.check_stroke_limit():
+                            pass
+                            # Move to next hole and set stroke to 12
                     else:
                         self.start_up_swing()
 
@@ -66,7 +70,7 @@ class SwingBar(GameObject.GameObject):
 
     def lock_accuracy(self):
         self.is_setting_accuracy = False
-        self.power = int((self.pow_ticker_pos_x - self.POWER_METER_POS_X) / 3)
+        self.power = int((self.pow_ticker_pos_x - self.POWER_METER_POS_X) / 2)
         self.power_num = self.power
 
         self.accuracy = 100 - int(abs(self.acc_ticker_pos_x - self.POWER_METER_POS_X))

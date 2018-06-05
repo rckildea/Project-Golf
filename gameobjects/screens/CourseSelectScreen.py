@@ -1,5 +1,6 @@
 import pygame
 import GameObject
+import Course
 import StageFactory
 
 
@@ -29,6 +30,8 @@ class CourseSelectScreen(GameObject.GameObject):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = event.pos
                 if self.SPRING_MEADOWS_BUTTON_RECT.collidepoint(x, y):
-                    StageFactory.StageFactory.create_course(stage.game_engine, "Spring Meadows")
+                    course = Course.Course("Spring Meadows")
+                    StageFactory.StageFactory.create_hole(stage.game_engine, course)
                 if self.THE_OASIS_BUTTON_RECT.collidepoint(x, y):
-                    StageFactory.StageFactory.create_course(stage.game_engine, "The Oasis")
+                    course = Course.Course("The Oasis")
+                    StageFactory.StageFactory.create_hole(stage.game_engine, course)

@@ -1,5 +1,6 @@
 from gameobjects.objects import Hole
 import pygame
+import StageFactory
 
 
 class Course:
@@ -17,13 +18,22 @@ class Course:
     def populate_course(self):
         hole_list = []
         for i in range(0, 18):
-            hole_list.append(Hole.Hole(i+1, self.course_name))
+            hole_list.append(Hole.Hole(i+1, self.course_name)) # Hole numbers offset by 1 of their actual index
 
         return hole_list
 
+    def get_current_hole(self):
+        return self.hole_list[self.current_hole]
+
     def get_strokes(self, start):
+        # Returns only strokes for front nine or back nine
         end = start+9
-        sum = 0
+        total = 0
         for i in range(start, end):
-            sum += self.hole_list[i].get_par()
-        return sum
+            total += self.hole_list[i].get_par()
+        return total
+
+    def next_hole(self, stage):
+        if self.current_hole < 18:
+            self.current_hole += 1
+            StageFactory.StageFactory.create_hole(stage.game_engine, self)

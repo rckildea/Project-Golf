@@ -15,8 +15,13 @@ class Hole(GameObject.GameObject):
         self.tee_box_pos_y = 0
         Hole.get_tee_box(self)
 
+        self.hole_score = 0
+
     def draw(self, game_display):
         game_display.blit(self.hole_background, (0, 0))
+        if not self.hole_score == 0:
+            stroke_text = self.FONT_128.render("{score}".format(score=self.get_user_score_name()), 1, (255, 255, 255))
+            game_display.blit(stroke_text, ((self.DISPLAY_WIDTH - stroke_text.get_size()[0]) / 2, (self.DISPLAY_HEIGHT - stroke_text.get_size()[1]) / 2))
 
     def handle_input(self, stage, events):
         for event in events:
@@ -54,6 +59,30 @@ class Hole(GameObject.GameObject):
         stage.score_card.set_active()
         stage.golf_ball.ignore_input = True
         stage.swing_bar.ignore_input = True
+
+    def display_score_hole_out(self, stage):
+        self.hole_score = stage.game_engine.character.current_stroke
+
+    def get_user_score_name(self):
+        user_score = self.hole_score - self.par
+        if self.par + user_score == 1:
+            return "Hole in One!"
+        if self.par > 4 and user_score == -3:
+            return "Albatross!"
+        if self.par > 3 and user_score == -2:
+            return "Eagle!"
+        if user_score == -1:
+            return "Birdie!"
+        if user_score == 0:
+            return "Par"
+        if user_score == 1:
+            return "Bogey"
+        if user_score == 2:
+            return "Double Bogey"
+        if user_score == 3:
+            return "Triple Bogey"
+        else:
+            return "+" + str(user_score)
 
     def music(self):
         pygame.mixer.stop()

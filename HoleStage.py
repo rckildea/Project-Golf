@@ -4,10 +4,11 @@ import Course
 from gameobjects.objects import Ball, Pin, SwingBar
 
 
-class CourseStage(Stage.Stage):
-    def __init__(self, game_engine, course_name):
+class HoleStage(Stage.Stage):
+    def __init__(self, game_engine, course):
         super().__init__(game_engine)
-        self.course = Course.Course(course_name)
+        self.course = course
+        self.hole = self.course.current_hole
         self.golf_ball = Ball.Ball(self.course.hole_list[self.course.current_hole].tee_box_pos_x,
                                    self.course.hole_list[self.course.current_hole].tee_box_pos_y)
         self.swing_bar = SwingBar.SwingBar()
