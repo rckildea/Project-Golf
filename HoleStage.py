@@ -12,7 +12,7 @@ class HoleStage(Stage.Stage):
         self.golf_ball = Ball.Ball(self.course.hole_list[self.course.current_hole].tee_box_pos_x,
                                    self.course.hole_list[self.course.current_hole].tee_box_pos_y)
         self.swing_bar = SwingBar.SwingBar()
-        self.pin = Pin.Pin()
+        self.pin = Pin.Pin(course)
         self.pause_screen = PauseScreen.PauseScreen()
         self.score_card = ScoreCard.ScoreCard(self.course)
 

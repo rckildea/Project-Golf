@@ -41,7 +41,7 @@ class Hole(GameObject.GameObject):
         return 0
 
     def get_tee_box(self):
-        file = "media/courses/Spring Meadows/properties/tee_box.txt".format(course=self.course_name)
+        file = "media/courses/{course}/properties/tee_box.txt".format(course=self.course_name)
         reader = open(file, 'r')
         lines = reader.readlines()
         coords = lines[self.hole_number-1]
